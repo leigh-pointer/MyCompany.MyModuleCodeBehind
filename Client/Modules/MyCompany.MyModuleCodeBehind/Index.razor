@@ -1,0 +1,35 @@
+﻿@using MyCompany.MyModuleCodeBehind.Services
+@using MyCompany.MyModuleCodeBehind.Models
+
+@namespace MyCompany.MyModuleCodeBehind
+@inherits ModuleBase
+
+@if (_MyModuleCodeBehinds == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <ActionLink Action="Add" Security="SecurityAccessLevel.Edit" Text="Add MyModuleCodeBehind" ResourceKey="Add" />
+    <br />
+    <br />
+    @if (@_MyModuleCodeBehinds.Count != 0)
+    {
+        <Pager Items="@_MyModuleCodeBehinds">
+            <Header>
+            <th style="width: 1px;">&nbsp;</th>
+            <th style="width: 1px;">&nbsp;</th>
+            <th>@Localizer["Name"]</th>
+            </Header>
+            <Row>
+                <td><ActionLink Action="Edit" Parameters="@($"id=" + context.MyModuleCodeBehindId.ToString())" ResourceKey="Edit" /></td>
+                <td><ActionDialog Header="Delete MyModuleCodeBehind" Message="@("Are You Sure You Wish To Delete The " + context.Name + " MyModuleCodeBehind?")" Action="Delete" Security="SecurityAccessLevel.Edit" Class="btn btn-danger" OnClick="@(async () => await Delete(context))" ResourceKey="Delete" /></td>
+                <td>@context.Name</td>
+            </Row>
+        </Pager>
+    }
+    else
+    {
+        <p>@Localizer["Message.DisplayNone"]</p>
+    }          
+}
