@@ -1,6 +1,4 @@
 ﻿@using Oqtane.Modules.Controls
-@using MyCompany.MyModuleCodeBehind.Services
-@using MyCompany.MyModuleCodeBehind.Models
 
 @namespace MyCompany.MyModuleCodeBehind
 @inherits ModuleBase
@@ -19,5 +17,5 @@
     <br /><br />
     @if (PageState.Action == "Edit")
     {
-<AuditInfo CreatedBy="@_createdby" CreatedOn="@_createdon" ModifiedBy="@_modifiedby" ModifiedOn="@_modifiedon"></AuditInfo>}
+    <AuditInfo CreatedBy="@_createdby" CreatedOn="@_createdon" ModifiedBy="@_modifiedby" ModifiedOn="@_modifiedon"></AuditInfo>}
 </form>
